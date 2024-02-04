@@ -85,7 +85,7 @@ public class AStar : MonoBehaviour
     /// </summary>
     private void Update()
     {
-        if (m_tilesExecute.m_tailsAreCalculate && !m_isTailsGridCreated)
+        if (m_tilesExecute != null && m_tilesExecute.m_tailsAreCalculate && !m_isTailsGridCreated)
         {
             m_isTailsGridCreated = true;
             m_tailsGrid = m_tilesExecute.m_tilesTwoDim;

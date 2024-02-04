@@ -39,7 +39,7 @@ public class EnemyBehaviour : GamePerson
         if (m_playerPosition != null)
             m_playerPosition = m_playerPositionTransform.position;
 
-        if (m_aStarAlgorithm.m_isTailsGridCreated)
+        if (m_aStarAlgorithm != null && m_aStarAlgorithm.m_isTailsGridCreated && m_tailCenterCalculate != null)
         {
             if (m_isFirstPathPoint)
             {

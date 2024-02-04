@@ -65,13 +65,12 @@ public class MineBehaviour : MonoBehaviour
             item.enabled = false;
         }
 
-        m_playerBehaviour.MineIsExploded(new MineInfo(transform.position));
+        if (m_playerBehaviour != null)
+            m_playerBehaviour.MineIsExploded(new MineInfo(transform.position));
+
         Instantiate(m_explosionPrefab, transform.position, Quaternion.identity);
 
-        StartCoroutine(CreateExplodeWave(Vector3.forward));
-        StartCoroutine(CreateExplodeWave(Vector3.back));
-        StartCoroutine(CreateExplodeWave(Vector3.left));
-        StartCoroutine(CreateExplodeWave(Vector3.right));
+        Invoke(nameof(StartCoroutine), 0.07f);
 
         if (m_explosionSound != null)
         {
@@ -79,6 +78,17 @@ public class MineBehaviour : MonoBehaviour
         }
 
         Destroy(gameObject, 1.0f);
+    }
+
+    /// <summary>
+    /// Starts coroutine with delay.
+    /// </summary>
+    private void StartCoroutine()
+    {
+        StartCoroutine(CreateExplodeWave(Vector3.forward));
+        StartCoroutine(CreateExplodeWave(Vector3.back));
+        StartCoroutine(CreateExplodeWave(Vector3.left));
+        StartCoroutine(CreateExplodeWave(Vector3.right));
     }
 
     /// <summary>

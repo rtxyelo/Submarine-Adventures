@@ -88,9 +88,12 @@ public class PlayerBehaviour : GamePerson
 
         rb = GetComponent<Rigidbody>();
 
-        rb.maxAngularVelocity = m_maxAngularVelocity;
-        rb.maxDepenetrationVelocity = m_maxDepenetrationVelocity;
-        rb.maxLinearVelocity = m_maxLinearVelocity;
+        if (rb != null)
+        {
+            rb.maxAngularVelocity = m_maxAngularVelocity;
+            rb.maxDepenetrationVelocity = m_maxDepenetrationVelocity;
+            rb.maxLinearVelocity = m_maxLinearVelocity;
+        }
 
         m_tailCenterCalculate = gameObject.AddComponent<TailCenterCalculate>();
 
@@ -98,6 +101,7 @@ public class PlayerBehaviour : GamePerson
         {
             m_health = PlayerPrefs.GetInt(m_healthKey, 3);
         }
+
         IsDead = true;
 
         if (m_diveSound != null)
@@ -244,7 +248,7 @@ public class PlayerBehaviour : GamePerson
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            if (!m_minesPositions.Contains(CenteringMinePosition(transform.position)))
+            if (m_tailCenterCalculate != null && !m_minesPositions.Contains(CenteringMinePosition(transform.position)))
             {
                 Vector3 minePrefab = Instantiate(m_minePrefab, CenteringMinePosition(transform.position), Quaternion.identity).transform.position;
                 m_minesPositions.Add(minePrefab);

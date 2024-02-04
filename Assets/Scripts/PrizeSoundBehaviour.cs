@@ -23,9 +23,13 @@ public class PrizeSoundBehaviour : MonoBehaviour
     private void InitializeAudioSource()
     {
         m_prizeAudioSource = gameObject.GetComponent<AudioSource>();
-        m_prizeAudioSource.clip = m_prizeSoundClip;
-        m_prizeAudioSource.volume = PlayerPrefs.HasKey(_musicVolumeKey) ? PlayerPrefs.GetFloat(_musicVolumeKey, 0.2f) : 0.2f;
-        m_prizeAudioSource.loop = true;
+
+        if (m_prizeAudioSource != null )
+        {
+            m_prizeAudioSource.clip = m_prizeSoundClip;
+            m_prizeAudioSource.volume = PlayerPrefs.HasKey(_musicVolumeKey) ? PlayerPrefs.GetFloat(_musicVolumeKey, 0.2f) : 0.2f;
+            m_prizeAudioSource.loop = true;
+        }
     }
 
     /// <summary>
@@ -33,6 +37,7 @@ public class PrizeSoundBehaviour : MonoBehaviour
     /// </summary>
     private void PlayPrizeSound()
     {
-        m_prizeAudioSource.Play();
+        if (m_prizeAudioSource != null)
+            m_prizeAudioSource.Play();
     }
 }

@@ -146,19 +146,19 @@ public class AgentEnemyBehaviour : Agent
         {
             SetReward(1f);
             EndEpisode();
-            Debug.Log("Bite!");
+            //Debug.Log("Bite!");
         }
 
         if (collision.gameObject.CompareTag("Rock"))
         {
             AddReward(-0.005f);
-            Debug.Log("Collide with rock!");
+            //Debug.Log("Collide with rock!");
         }
 
         if (collision.gameObject.CompareTag("AgentTrainWalls"))
         {
             AddReward(-0.003f);
-            Debug.Log("Collide with wall!!!");
+            //Debug.Log("Collide with wall!!!");
         }
     }
 

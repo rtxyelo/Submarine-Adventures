@@ -37,16 +37,15 @@ public class ExplosionBehaviour : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Enemy"))
+        if (collision.gameObject != null && collision.gameObject.CompareTag("Enemy"))
         {
             HandleEnemyDestroyed();
             Destroy(collision.gameObject);
         }
-        if (collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject != null && collision.gameObject.CompareTag("Player"))
         {
             Destroy(collision.gameObject, 0.1f);
         }
-
     }
 
     private void OnTriggerEnter(Collider other)

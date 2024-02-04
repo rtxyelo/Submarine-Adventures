@@ -35,7 +35,7 @@ public class EnemySpawner : MonoBehaviour
 
     private void Update()
     {
-        if (m_aStarAlgorithm.m_isTailsGridCreated && m_numberOfEnemies > 0)
+        if (m_aStarAlgorithm != null && m_aStarAlgorithm.m_isTailsGridCreated && m_numberOfEnemies > 0)
         {
             StartCoroutine(SpawnEnemyRoutine());
         }

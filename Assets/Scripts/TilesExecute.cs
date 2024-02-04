@@ -26,9 +26,12 @@ public class TilesExecute : MonoBehaviour
 
     private void Start()
     {
-        m_gameFieldSize = new Vector2Int(_gameField.m_gameFieldSize.x, _gameField.m_gameFieldSize.y);
-        m_tilesTwoDim = new GameObject[_gameField.m_gameFieldSize.y, _gameField.m_gameFieldSize.x];
-        SetGameTails();
+        if (_gameField != null)
+        {
+            m_gameFieldSize = new Vector2Int(_gameField.m_gameFieldSize.x, _gameField.m_gameFieldSize.y);
+            m_tilesTwoDim = new GameObject[_gameField.m_gameFieldSize.y, _gameField.m_gameFieldSize.x];
+            SetGameTails();
+        }
     }
 
     /// <summary>

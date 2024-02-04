@@ -17,7 +17,9 @@ public class TilesBehaviour : MonoBehaviour
         if (collision != null && collision.transform.gameObject.CompareTag("Rock"))
         {
             m_tilesExecute = GetComponentInParent<TilesExecute>();
-            m_tilesExecute.ResetPathTails(gameObject);
+            
+            if (m_tilesExecute != null )
+                m_tilesExecute.ResetPathTails(gameObject);
         }
     }
 }
