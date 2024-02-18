@@ -13,6 +13,3 @@ Movement is controlled using the W, A, S, D keys. The player can drop a mine, wh
 
 # Animations
  Animations for schools of fish were created using a DOTWeen package.
-
- # Build
-  The game build is in the Submarine-Adventures folder. However, when loading the GitHub project, the desktop did not skip one file from the build folder due to its size. This is a file Submarine-Adventures\Submarine Adventures_Data\sharedassets1.assets.resS
